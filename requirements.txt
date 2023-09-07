@@ -1,0 +1,7 @@
+torch==2.0.1+cu118
+GPUtil==1.4.0
+pandas
+numpy
+matplotlib
+sentencepiece
+torchtext
