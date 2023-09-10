@@ -12,6 +12,7 @@ RoPE是一种在LLaMA、ChatGLM、Palm广泛引用位置编码格式，通过绝
 ### QuietAttention
 作者EvanMiller7月24日发布于[博客](https://www.evanmiller.org/attention-is-off-by-one.html)，作者声称在Attention机制中的SoftMax函数实现存在数学原理上的错误，这个错误导致了在LLM训练中，会出现高出几个数量级的异常权重，使得训练过程中需要更多的内存来储存这些权重，浪费了珍贵的内存和计算性能。
 作者提出修改SoftMax公式，在原有的分母上加一。这使得在x趋近于负无穷时，SoftMax的极限从1/k转换为0，这使得输出具有“均不相关“的数学可能。
+
 ![](images/new2.jpeg?v=1&type=image)
 
 > 旧SoftMax
@@ -21,6 +22,7 @@ RoPE是一种在LLaMA、ChatGLM、Palm广泛引用位置编码格式，通过绝
 > 新SoftMax
 
 ![](images/new.jpeg?v=1&type=image)
+
 在本模型中，本修改作用有限，仅是一次尝试。
 
 ## 模型训练流程
